@@ -32,6 +32,8 @@ Marketing and flight-enquiry website for **Flights Doctor**, an independent trav
 
 ## Project Structure
 
+# Flight Doctors
+
 ```
 flight-doctors-main/
 ├── Assets/
@@ -39,11 +41,11 @@ flight-doctors-main/
 ├── src/
 │   ├── App.tsx          # All pages & components (Home, Terms, Contact)
 │   ├── index.css        # Tailwind entry + global styles
-│   ├── main.tsx          # React root
+│   ├── main.tsx         # React root
 │   └── vite-env.d.ts
-├── .env                  # Local environment variables (not committed)
+├── .env                # Local environment variables (not committed)
 ├── .gitignore
-├── vercel.json            # SPA rewrite rule for Vercel
+├── vercel.json         # SPA rewrite rule for Vercel
 ├── tsconfig.json
 ├── tsconfig.app.json
 ├── tsconfig.node.json
@@ -58,7 +60,7 @@ flight-doctors-main/
 ### 1. Install dependencies
 ```bash
 npm install
-```
+
 
 ### 2. Set up environment variables
 Create a `.env` file in the project root:
