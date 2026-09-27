@@ -3814,3 +3814,50 @@ select optgroup {
   }
 }
 
+/* =========================================
+   GOOGLE RATING — INDIA PROMO
+   Desktop + Mobile
+   ========================================= */
+
+.india-promo-google-rating {
+  display: block;
+  position: absolute;
+
+  right: 45px;
+  bottom: 28px;
+
+  width: 190px;
+  height: auto;
+
+  z-index: 5;
+  pointer-events: none;
+  object-fit: contain;
+
+  /* visibility boost */
+  filter: drop-shadow(0 3px 8px rgba(0, 0, 0, 0.45));
+}
+
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .india-promo-google-rating {
+    right: auto;
+    left: 62%;
+    bottom: 18px;
+    width: 190px;
+
+    filter: drop-shadow(0 3px 8px rgba(0, 0, 0, 0.5));
+  }
+}
+
+
+/* SMALL MOBILE */
+@media (max-width: 480px) {
+  .india-promo-google-rating {
+    left: 55%;
+    bottom: 16px;
+    width: 175px;
+
+    filter: drop-shadow(0 3px 8px rgba(0, 0, 0, 0.5));
+  }
+}
