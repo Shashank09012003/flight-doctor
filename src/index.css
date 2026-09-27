@@ -3610,3 +3610,67 @@ select optgroup {
   .india-promo-plane { top: 10%; }
   .plane-trail { width: 70px; }
 }
+
+/* =========================================
+   HOMEPAGE FLOW — PROMO → FORM → METRICS
+   ========================================= */
+
+/* The existing IndiaFarePromo is reused in place of the former hero-copy block. */
+.hero-inner {
+  grid-template-columns: 1fr;
+  gap: 34px;
+  align-items: stretch;
+  padding-top: 148px;
+  padding-bottom: 82px;
+  min-height: auto;
+}
+
+.hero-inner > .india-promo {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 0;
+}
+
+.hero-inner > .booking-card {
+  width: min(500px, 100%);
+  max-width: 500px;
+  justify-self: center;
+  align-self: center;
+}
+
+/* Keep the existing four-card metrics grid; ATAS Certification replaces support. */
+.stats-bar {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+@media (max-width: 1024px) {
+  .hero-inner {
+    grid-template-columns: 1fr;
+    gap: 34px;
+    padding: 138px 24px 76px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-inner {
+    padding: 112px 20px 62px;
+    gap: 28px;
+  }
+
+  .hero-inner > .india-promo {
+    padding: 0;
+  }
+
+  .hero-inner > .booking-card {
+    width: 100%;
+    max-width: 500px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-inner {
+    padding: 104px 16px 54px;
+    gap: 24px;
+  }
+}

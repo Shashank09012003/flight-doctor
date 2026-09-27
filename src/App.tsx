@@ -241,7 +241,7 @@ const banks = [
 const stats = [
   ['15K+', 'Happy travellers', Users, '#004AAD'],
   ['500+', 'Routes covered', Globe2, '#1075CF'],
-  ['7 days', 'Expert support', Headphones, '#41A3D8'],
+  ['ATAS', 'ATAS Certification', BadgeCheck, '#41A3D8'],
   ['4.9★', 'Customer rating', Award, '#E00000'],
 ];
 
@@ -703,99 +703,7 @@ function App() {
                 </motion.div>
 
                 <div className="hero-inner">
-                  <motion.div
-                    className="hero-copy"
-                    initial={{ opacity: 0, x: -100, rotateY: 20 }}
-                    animate={{ opacity: 1, x: 0, rotateY: 0 }}
-                    transition={{ duration: 1.1, delay: 0.25, ease: [0.16, 1, 0.3, 1] }}
-                    style={{ transformPerspective: 1500 }}
-                  >
-                    <motion.p
-                      className="eyebrow light"
-                      initial={{ opacity: 0, y: 22 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.55, delay: 0.4 }}
-                    >
-                      <span /> Award-winning travel specialists
-                    </motion.p>
-                    <motion.h1
-                      initial={{ opacity: 0, y: 50 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.85, delay: 0.55, ease: [0.16, 1, 0.3, 1] }}
-                    >
-                      Travel further.<br />
-                      <motion.em
-                        style={{ backgroundSize: '300% 300%' }}
-                        animate={{ backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'] }}
-                        transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
-                      >Feel looked after.</motion.em>
-                    </motion.h1>
-                    <motion.div
-                      className="flex gap-3 flex-wrap mt-5"
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: 0.75 }}
-                    >
-                      {[
-                        { icon: ShieldCheck, label: 'ATAS Accredited' },
-                        { icon: Award, label: '4.9★ Rated' },
-                        { icon: CalendarCheck, label: '7 Day Support' },
-                      ].map((tag, i) => (
-                        <motion.span
-                          key={tag.label}
-                          className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/15 backdrop-blur-md text-xs font-semibold text-blue-100"
-                          initial={{ opacity: 0, scale: 0.8 }}
-                          animate={{ opacity: 1, scale: 1 }}
-                          transition={{ delay: 0.85 + i * 0.08, type: 'spring', stiffness: 150 }}
-                          whileHover={{ scale: 1.06, y: -2 }}
-                        >
-                          <tag.icon size={14} /> {tag.label}
-                        </motion.span>
-                      ))}
-                    </motion.div>
-                    <motion.p
-                      className="hero-text"
-                      initial={{ opacity: 0, y: 34 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.7, delay: 0.7 }}
-                    >
-                      Smart fares, thoughtful advice and a human touch for every journey from Australia.
-                      From beach escapes to cultural expeditions, our experts craft trips that feel effortless.
-                    </motion.p>
-                    {/* <div className="flex gap-3 flex-wrap">
-                      <motion.button
-                        className="button button-primary"
-                        onClick={() => document.getElementById('booking')?.scrollIntoView({ behavior: 'smooth' })}
-                        initial={{ opacity: 0, y: 34, scale: 0.88 }}
-                        animate={{ opacity: 1, y: 0, scale: 1 }}
-                        transition={{ duration: 0.55, delay: 0.9, type: 'spring', stiffness: 180 }}
-                        whileHover={{ scale: 1.07, boxShadow: '0 25px 55px rgba(224,0,0,0.55)' }}
-                        whileTap={{ scale: 0.97 }}
-                      >
-                        <Sparkles size={17} className="btn-sparkle" />
-                        Check pricing <ArrowRight size={17} />
-                      </motion.button>
-                      <motion.a
-                        href="#packages"
-                        className="button button-blue"
-                        initial={{ opacity: 0, y: 34, scale: 0.88 }}
-                        animate={{ opacity: 1, y: 0, scale: 1 }}
-                        transition={{ duration: 0.55, delay: 1, type: 'spring', stiffness: 180 }}
-                        whileHover={{ scale: 1.07 }}
-                        whileTap={{ scale: 0.97 }}
-                      >
-                        <Gift size={16} /> View packages
-                      </motion.a>
-                    </div>
-                    <motion.div
-                      className="trust-line"
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      transition={{ duration: 0.6, delay: 1.15 }}
-                    >
-                      <ShieldCheck size={16} /> Personal service, every step of the way
-                    </motion.div> */}
-                  </motion.div>
+                  <IndiaFarePromo />
 
                   <BookingForm
                     booking={booking}
@@ -823,7 +731,6 @@ function App() {
             </CinematicScene>
 
             <StatsBar />
-            <IndiaFarePromo />
             <HolidayPackages />
             <Features />
             <Routes onRequest={(from, to) => { updateBooking('from', from); updateBooking('to', to); document.getElementById('booking')?.scrollIntoView({ behavior: 'smooth' }); }} />
