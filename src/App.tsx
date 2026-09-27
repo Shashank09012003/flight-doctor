@@ -396,7 +396,7 @@ function AnimatedClouds() {
   );
 }
 
-function Logo() {
+function Logo({ className = '' }: { className?: string }) {
   const [hoverCount, setHoverCount] = useState(0);
 
   const handleMouseEnter = () => {
@@ -416,7 +416,7 @@ function Logo() {
       <img
         src="/Flights_Doctor_Logo_.png"
         alt="Flights Doctor - Your Comfort Our Duty"
-        className="site-logo"
+        className={`site-logo ${className}`.trim()}
       />
     </motion.a>
   );
@@ -771,7 +771,7 @@ function Header({ compact, menuOpen, setMenuOpen, goTo, solid }: { compact: bool
       transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
     >
       <div className="nav-wrap">
-        <Logo />
+        <Logo className="navbar-logo" />
         <nav className={menuOpen ? 'open' : ''}>
           {[
             { label: 'Home', onClick: () => goTo('/') },
@@ -1771,7 +1771,7 @@ function Footer({ goTo, hideBank }: { goTo: (path: string) => void; hideBank?: b
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <Logo />
+          <Logo className="footer-logo" />
           <p className="footer-copy">Independent travel advice for people who like their journeys to feel effortless. Flights, stays and experiences — booked with care.</p>
           <div className="socials">
             {[

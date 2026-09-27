@@ -189,8 +189,8 @@ button { border: 0; cursor: pointer; background: none; }
 /* Official Flights Doctor logo image */
 .site-logo {
   display: block;
-  width: 150px;
-  height: 64px;
+  width: 190px;
+  height: 82px;
   object-fit: contain;
   object-position: center;
   border-radius: 0;
@@ -206,8 +206,8 @@ button { border: 0; cursor: pointer; background: none; }
 }
 
 .site-header.solid .site-logo {
-  width: 150px;
-  height: 64px;
+  width: 190px;
+  height: 82px;
 }
 
 footer .site-logo {
@@ -218,14 +218,12 @@ footer .site-logo {
 @media (max-width: 768px) {
   .site-logo,
   .site-header.solid .site-logo {
-    width: 128px;
-    height: 56px;
-    padding: 4px 7px;
-  }
-
-  footer .site-logo {
-    width: 150px;
-    height: 64px;
+    width: 190px;
+    height: 94px;
+    padding: 0;
+    object-fit: contain;
+    transform: scale(1.25);
+    transform-origin: center;
   }
 }
 
@@ -3674,3 +3672,125 @@ select optgroup {
     gap: 24px;
   }
 }
+
+/* =========================================
+   MOBILE ROUTE CARDS — STATIC LAYOUT
+   Desktop route-card motion remains unchanged.
+   ========================================= */
+@media (max-width: 768px) {
+  .route-list {
+    width: 100%;
+    min-width: 0;
+    overflow: visible;
+  }
+
+  .route-card,
+  .route-card:hover {
+    /* Framer Motion writes the desktop hover transform inline;
+       !important keeps mobile cards fixed in the layout. */
+    transform: none !important;
+    transition: box-shadow .25s ease, border-color .25s ease !important;
+    box-shadow: 0 8px 28px rgba(8,48,103,0.07) !important;
+    border-color: #E5E8EF;
+    overflow: hidden;
+    width: 100%;
+    min-width: 0;
+  }
+
+  .route-card:hover::before {
+    transform: scaleY(0);
+  }
+
+  .route-card:hover::after {
+    opacity: 0;
+  }
+
+  /* Replace the card's floating/reveal movement with a subtle fade. */
+  .route-card {
+    animation: mobileRouteFadeIn .55s ease both;
+  }
+
+  .route-card:nth-child(2) { animation-delay: .08s; }
+  .route-card:nth-child(3) { animation-delay: .16s; }
+  .route-card:nth-child(4) { animation-delay: .24s; }
+  .route-card:nth-child(5) { animation-delay: .32s; }
+  .route-card:nth-child(6) { animation-delay: .40s; }
+
+  @keyframes mobileRouteFadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  /* Keep the existing plane/price animations as subtle internal motion. */
+  .route-plane-moving {
+    will-change: left;
+  }
+
+  .route-line,
+  .price-block {
+    min-width: 0;
+  }
+}
+
+/* ==========================================================================
+   FLIGHTS DOCTOR LOGO SIZING
+   Separate navbar/footer sizing without changing the shared logo component.
+   ========================================================================== */
+.site-header .site-logo.navbar-logo {
+  width: 180px;
+  height: 77px;
+  max-width: 100%;
+  object-fit: contain;
+  object-position: center;
+  flex: 0 0 auto;
+}
+
+.footer-grid .site-logo.footer-logo {
+  width: 198px;
+  height: 84px;
+  max-width: 100%;
+  object-fit: contain;
+  object-position: center;
+}
+
+/* Keep the enlarged navbar logo vertically centered in the compact header. */
+.compact .site-header .site-logo.navbar-logo,
+.site-header.compact .site-logo.navbar-logo {
+  width: 168px;
+  height: 72px;
+}
+
+@media (max-width: 768px) {
+  .site-header .site-logo.navbar-logo {
+    width: 150px;
+    height: 64px;
+  }
+
+  .site-header.compact .site-logo.navbar-logo {
+    width: 146px;
+    height: 62px;
+  }
+
+  .footer-grid .site-logo.footer-logo {
+    width: 180px;
+    height: 76px;
+  }
+}
+
+@media (max-width: 480px) {
+  .site-header .site-logo.navbar-logo {
+    width: 145px;
+    height: 62px;
+  }
+
+  .site-header.compact .site-logo.navbar-logo {
+    width: 140px;
+    height: 60px;
+  }
+
+  .footer-grid .site-logo.footer-logo {
+    width: 174px;
+    height: 74px;
+  }
+}
+
