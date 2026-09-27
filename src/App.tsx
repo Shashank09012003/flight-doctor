@@ -5,6 +5,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import PhoneInput from 'react-phone-input-2';
 import 'react-phone-input-2/lib/style.css';
 import termsHeroImage from './assets/terms-hero-travel.jpg';
+import indiaPromoImage from './assets/india-promo.png';
 import termsDocumentsImage from './assets/terms-documents.jpg';
 import {
   ArrowRight,
@@ -149,16 +150,86 @@ const routes = [
 ];
 
 const terms = [
-  ['Travel Requirements', 'Infants are eligible to travel at infant fare rates until they reach 2 years of age. If an infant turns 2 during the journey, the ticket must be reissued at the applicable child fare, and any fare difference, taxes, and airline charges will apply. By submitting payment, you acknowledge and agree to these Terms & Conditions. Passengers are solely responsible for ensuring they hold valid passports, visas, transit visas, and any other travel documentation required by the destination or transit countries. Please verify all travel requirements with the relevant embassy or consulate before departure.'],
-  ['Airfares & Ticketing', 'Airfares are not guaranteed until tickets have been issued. Airlines may revise fares, taxes, or surcharges without prior notice before ticket issuance. Once final approval and payment confirmation are received, ticket issuance will be processed within 24–48 hours, subject to payment verification and booking validation by our Accounts Team. Bank transfers should be completed at least 48 hours before the final payment due date, using the booking reference as the payment reference. Airfares, taxes, and airline-imposed charges remain subject to change until the full payment has been received and verified. Completion of payment confirms your acceptance of these Terms & Conditions and our Privacy Policy.'],
-  ['Schedule & Check-in', 'Passengers are advised to reconfirm their flight schedule, dates, meal requests, and seat requests 72 hours before departure. Flights Doctor is not responsible for airline schedule changes, delays, or cancellations. In the event of a No-Show or Missed Flight, airline penalties, fare differences, and applicable taxes will apply. Flights Doctor will assist with rebooking where possible; however, all additional costs are the passenger\'s responsibility. Unless otherwise specified by the airline, tickets are generally valid for 3 months from the date of issue.'],
-  ['Amendments & Refunds', 'All amendment requests must be submitted via email at least 48 hours before departure and remain subject to airline approval, applicable fare differences, taxes, airline penalties, and Flights Doctor administrative fees. Non-Flexible Tickets cannot be changed, amended, cancelled, or refunded unless otherwise permitted under the airline\'s fare rules. Flexible Tickets may be changed subject to airline penalties, fare differences, tax differences, and seat availability at the time of the requested change. Refunds, where permitted, are subject to airline approval, applicable penalties, and administrative fees. Refund processing may take approximately 14–16 weeks or longer depending on the airline. Refunds are processed only after the airline has released the funds to Flights Doctor. Processing times are determined by the airline and cannot be guaranteed.'],
-  ['Passenger Responsibilities', 'Passengers are responsible for reviewing all passenger names, travel dates, destinations, and flight details before making payment. Flights Doctor accepts no responsibility for errors identified after payment or ticket issuance. Seating, bassinet, wheelchair, meal, and other special service requests are subject to airline availability and are not guaranteed. Passports must remain valid for a minimum of 6 months from the date of travel unless different requirements apply to your destination. Airlines generally do not provide accommodation during transit unless specifically included under their policy or due to operational disruptions. Requests for cabin upgrades (Premium Economy, Business Class, or First Class) should be made before ticket issuance and are subject to airline availability. Passengers must comply with all health, vaccination, testing, and entry requirements imposed by airlines and government authorities at the time of travel.'],
-  ['Limited Liability', 'Flights Doctor shall not be liable for delays, cancellations, schedule changes, denied boarding, missed connections, baggage issues, weather disruptions, industrial action, government restrictions, or any circumstances beyond our reasonable control. Flights Doctor is not responsible for services booked independently by passengers, including hotels, transfers, cruises, tours, insurance, or other travel-related products.'],
-  ['Travel Documentation & Insurance', 'Passengers are solely responsible for ensuring all passports, visas, permits, vaccination certificates, and other travel documents are valid and available before travel. Flights Doctor accepts no liability for denied boarding or entry resulting from incomplete or incorrect documentation. Flights Doctor strongly recommends that all passengers purchase comprehensive travel insurance covering cancellations, medical emergencies, baggage loss, travel delays, and unforeseen events.'],
-  ['Payment Disputes', 'Any payment discrepancy or dispute must be reported within 24 hours of payment. Failure to settle outstanding balances may result in cancellation of the booking.'],
-  ['Force Majeure', 'Flights Doctor shall not be liable for any interruption or failure to perform its obligations due to events beyond its control, including but not limited to natural disasters, pandemics, war, terrorism, civil unrest, strikes, government actions, or airline operational disruptions. Flights Doctor is not responsible for travel disruptions arising from changes to immigration laws, border closures, quarantine requirements, or government travel advisories.'],
-  ['Privacy & Data Protection', 'Passenger information will be used solely for booking and travel-related purposes and may be shared with airlines, payment providers, and other travel service providers where necessary to complete your booking.'],
+  [
+    'Travel Requirements',
+    'Infants are eligible to travel at infant fare rates until they reach 2 years of age. If an infant turns 2 during the journey, the ticket must be reissued at the applicable child fare, and any fare difference, taxes, and airline charges will apply. By submitting payment, you acknowledge and agree to these Terms & Conditions. Passengers are solely responsible for ensuring they hold valid passports, visas, transit visas, and any other travel documentation required by the destination or transit countries. Please verify all travel requirements with the relevant embassy or consulate before departure.'
+  ],
+
+  [
+    'Airfares & Ticketing',
+    'Airfares are not guaranteed until tickets have been issued. Airlines may revise fares, taxes, or surcharges without prior notice before ticket issuance. Once final approval and payment confirmation are received, ticket issuance will be processed within 24–48 hours, subject to payment verification and booking validation by our Accounts Team. Bank transfers should be completed at least 48 hours before the final payment due date, using the booking reference as the payment reference. Airfares, taxes, and airline-imposed charges remain subject to change until the full payment has been received and verified. Completion of payment confirms your acceptance of these Terms & Conditions and our Privacy Policy.'
+  ],
+
+  [
+    'Schedule & Check-in',
+    'Passengers are advised to reconfirm their flight schedule, dates, meal requests, and seat requests 72 hours before departure. Flights Doctor is not responsible for airline schedule changes, delays, or cancellations. In the event of a No-Show or Missed Flight, airline penalties, fare differences, and applicable taxes will apply. Flights Doctor will assist with rebooking where possible; however, all additional costs are the passenger\'s responsibility. Unless otherwise specified by the airline, tickets are generally valid for 3 months from the date of issue.'
+  ],
+
+  [
+    'Cancellation & Refund Fees',
+    `Cancellation charges can be up to 100% of the booking cost depending on fare rules. Refunds may take approximately 15 weeks or longer depending on the airline. A $200 refund administration fee applies, including in cases of airline schedule changes. Additional no-show fees may apply within 48 hours of departure.
+
+Ticket cost up to $1,000: $175 per ticket.
+$1,001 to $2,000: $250 per ticket.
+$2,001 to $3,000: $350 per ticket.
+Above $3,000: $450 per ticket.`
+  ],
+
+  [
+    'Change & Reissue Fees',
+    `All non-flexible tickets are non-changeable. If changes are allowed, applicable airline change fees, fare/tax differences and the following administration and consolidation fees may apply.
+
+Ticket cost up to $1,000: $175 per ticket.
+$1,001 to $2,000: $250 per ticket.
+$2,001 to $3,000: $350 per ticket.
+Above $3,000: $450 per ticket.
+Domestic tickets: $55 admin and consolidation fee per ticket, plus airline fees and fare/tax differences.`
+  ],
+
+  [
+    'Amendments & Refunds',
+    'All amendment requests must be submitted via email at least 48 hours before departure and remain subject to airline approval, applicable fare differences, taxes, airline penalties, and Flights Doctor administrative fees. Non-Flexible Tickets cannot be changed, amended, cancelled, or refunded unless otherwise permitted under the airline\'s fare rules. Flexible Tickets may be changed subject to airline penalties, fare differences, tax differences, and seat availability at the time of the requested change. Refunds, where permitted, are subject to airline approval, applicable penalties, and administrative fees. Refund processing may take approximately 14–16 weeks or longer depending on the airline. Refunds are processed only after the airline has released the funds to Flights Doctor. Processing times are determined by the airline and cannot be guaranteed.'
+  ],
+
+  [
+    'Passenger Responsibilities',
+    'Passengers are responsible for reviewing all passenger names, travel dates, destinations, and flight details before making payment. Flights Doctor accepts no responsibility for errors identified after payment or ticket issuance. Seating, bassinet, wheelchair, meal, and other special service requests are subject to airline availability and are not guaranteed. Passports must remain valid for a minimum of 6 months from the date of travel unless different requirements apply to your destination. Airlines generally do not provide accommodation during transit unless specifically included under their policy or due to operational disruptions. Requests for cabin upgrades (Premium Economy, Business Class, or First Class) should be made before ticket issuance and are subject to airline availability. Passengers must comply with all health, vaccination, testing, and entry requirements imposed by airlines and government authorities at the time of travel.'
+  ],
+
+  [
+    'Limited Liability',
+    'Flights Doctor shall not be liable for delays, cancellations, schedule changes, denied boarding, missed connections, baggage issues, weather disruptions, industrial action, government restrictions, or any circumstances beyond our reasonable control. Flights Doctor is not responsible for services booked independently by passengers, including hotels, transfers, cruises, tours, insurance, or other travel-related products.'
+  ],
+
+  [
+    'Travel Documentation & Insurance',
+    'Passengers are solely responsible for ensuring all passports, visas, permits, vaccination certificates, and other travel documents are valid and available before travel. Flights Doctor accepts no liability for denied boarding or entry resulting from incomplete or incorrect documentation. Flights Doctor strongly recommends that all passengers purchase comprehensive travel insurance covering cancellations, medical emergencies, baggage loss, travel delays, and unforeseen events.'
+  ],
+
+  [
+    'Payment Disputes',
+    'Any payment discrepancy or dispute must be reported within 24 hours of payment. Failure to settle outstanding balances may result in cancellation of the booking.'
+  ],
+
+  [
+    'Force Majeure',
+    'Flights Doctor shall not be liable for any interruption or failure to perform its obligations due to events beyond its control, including but not limited to natural disasters, pandemics, war, terrorism, civil unrest, strikes, government actions, or airline operational disruptions. Flights Doctor is not responsible for travel disruptions arising from changes to immigration laws, border closures, quarantine requirements, or government travel advisories.'
+  ],
+
+  [
+    'Privacy & Data Protection',
+    'Passenger information will be used solely for booking and travel-related purposes and may be shared with airlines, payment providers, and other travel service providers where necessary to complete your booking.'
+  ],
+
+  [
+    'Special Requirements',
+    'Please inform us of any special requirements. All requests are subject to airline confirmation and must be reconfirmed with us at least three business days before departure. Requests are not guaranteed. Some airlines may charge additional fees. If an infant turns two years old during travel, child fare and reissue fees will apply for onward, return, or both journeys. It is your responsibility to notify us of such changes. Children traveling with relatives/guardians may require written consent from both parents. Please check with the airline and relevant authorities. A minor must be accompanied by their natural parents at all times. No airline provides transit accommodation.'
+  ],
+
+  [
+    'Passports and Visas',
+    'You are responsible for ensuring that your passport, visas, transit visas, and re-entry permits are valid and meet all immigration and government authority requirements. Any fines or costs due to improper documentation are your sole responsibility. Most countries require passports to be valid for at least six months from entry. Contact the appropriate consulate for visa requirements.'
+  ],
 ];
 
 const banks = [
@@ -691,7 +762,7 @@ function App() {
                       Smart fares, thoughtful advice and a human touch for every journey from Australia.
                       From beach escapes to cultural expeditions, our experts craft trips that feel effortless.
                     </motion.p>
-                    <div className="flex gap-3 flex-wrap">
+                    {/* <div className="flex gap-3 flex-wrap">
                       <motion.button
                         className="button button-primary"
                         onClick={() => document.getElementById('booking')?.scrollIntoView({ behavior: 'smooth' })}
@@ -723,7 +794,7 @@ function App() {
                       transition={{ duration: 0.6, delay: 1.15 }}
                     >
                       <ShieldCheck size={16} /> Personal service, every step of the way
-                    </motion.div>
+                    </motion.div> */}
                   </motion.div>
 
                   <BookingForm
@@ -752,6 +823,7 @@ function App() {
             </CinematicScene>
 
             <StatsBar />
+            <IndiaFarePromo />
             <HolidayPackages />
             <Features />
             <Routes onRequest={(from, to) => { updateBooking('from', from); updateBooking('to', to); document.getElementById('booking')?.scrollIntoView({ behavior: 'smooth' }); }} />
@@ -763,6 +835,22 @@ function App() {
           <Footer goTo={goTo} />
         </motion.div>
       </AnimatePresence>
+      <div className="action-dock">
+        <a className="dock-btn dock-whatsapp" href="https://wa.me/61406337900" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
+          <span className="dock-icon">
+            <svg viewBox="0 0 32 32" width="20" height="20" fill="currentColor" aria-hidden="true">
+              <path d="M16.04 4C9.4 4 4 9.36 4 15.96c0 2.1.56 4.14 1.63 5.96L4 28l6.3-1.62a12.1 12.1 0 0 0 5.74 1.44h.01c6.63 0 12.03-5.36 12.03-11.96 0-3.2-1.26-6.2-3.53-8.46A12.02 12.02 0 0 0 16.04 4Zm0 21.9h-.01a10 10 0 0 1-5.1-1.4l-.37-.22-3.74.96 1-3.64-.24-.38a9.86 9.86 0 0 1-1.53-5.26c0-5.45 4.47-9.88 9.99-9.88 2.67 0 5.18 1.03 7.07 2.9a9.8 9.8 0 0 1 2.93 7c0 5.45-4.47 9.92-10 9.92Zm5.5-7.42c-.3-.15-1.78-.87-2.06-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.95 1.17-.17.2-.35.22-.65.07-.3-.15-1.27-.46-2.42-1.48-.9-.79-1.5-1.77-1.68-2.07-.17-.3-.02-.46.13-.61.14-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.49s1.07 2.89 1.22 3.09c.15.2 2.11 3.22 5.1 4.51.71.31 1.27.49 1.7.63.72.23 1.37.2 1.88.12.57-.09 1.78-.73 2.03-1.43.25-.7.25-1.3.17-1.43-.07-.13-.27-.2-.57-.35Z" />
+            </svg>
+          </span>
+          <span className="dock-label">WhatsApp</span>
+        </a>
+        <a className="dock-btn dock-call" href="tel:0287597722" aria-label="Call now">
+          <span className="dock-icon">
+            <Phone size={18} strokeWidth={2.4} />
+          </span>
+          <span className="dock-label">Call Now</span>
+        </a>
+      </div>
     </div>
   );
 }
@@ -932,13 +1020,13 @@ function BookingForm({ booking, updateBooking, submitBooking, today, status, for
             )}
           </AnimatePresence>
         </div>
-        <div className="form-grid two">
+        {/* <div className="form-grid two">
           <Select label="Travellers" value={booking.occupants} onChange={(value) => updateBooking('occupants', value)} options={['1', '2', '3', '4+']} icon={<Users size={14} />} />
           <Select label="Cabin class" value={booking.cabin} onChange={(value) => updateBooking('cabin', value)} options={['Economy', 'Premium Economy', 'Business', 'First']} icon={<CreditCard size={14} />} />
-        </div>
+        </div> */}
         <motion.label whileFocus={{ scale: 1.005 }} transition={{ type: 'spring' }}>
-          Notes <span className="optional">optional</span>
-          <textarea rows={2} value={booking.notes} onChange={(e) => updateBooking('notes', e.target.value)} placeholder="Anything we should know? Stopovers, seating, preferences…" />
+          {/* Notes <span className="optional">optional</span>
+          <textarea rows={2} value={booking.notes} onChange={(e) => updateBooking('notes', e.target.value)} placeholder="Anything we should know? Stopovers, seating, preferences…" /> */}
         </motion.label>
         <label className="consent">
           <input type="checkbox" checked={booking.consent} onChange={(e) => updateBooking('consent', e.target.checked)} />
@@ -1082,7 +1170,94 @@ function StatsBar() {
   );
 }
 
+
+function IndiaFarePromo() {
+  const ref = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({ target: ref, offset: ['start end', 'end start'] });
+  const bgY = useTransform(scrollYProgress, [0, 1], ['-9%', '9%']);
+  const glowX = useTransform(scrollYProgress, [0, 1], ['0%', '16%']);
+
+  return (
+    <motion.section
+      className="india-promo"
+      ref={ref as React.RefObject<HTMLElement>}
+      initial={{ opacity: 0, y: 64 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: '-80px' }}
+      transition={{ duration: 0.85, ease: [0.16, 1, 0.3, 1] }}
+    >
+      <div className="india-promo-card">
+        <motion.div
+          className="india-promo-bg"
+          style={{ y: bgY, backgroundImage: `url(${indiaPromoImage})` }}
+        />
+        <div className="india-promo-overlay" />
+        <motion.div className="india-promo-glow" style={{ x: glowX }} />
+        <motion.div
+          className="india-promo-plane"
+          animate={{ left: ['-14%', '104%'], y: [0, -16, 0, -10, 0] }}
+          transition={{
+            left: { duration: 16, repeat: Infinity, ease: 'linear' },
+            y: { duration: 4, repeat: Infinity, ease: 'easeInOut' },
+          }}
+        >
+          <span className="plane-trail" />
+          <span className="plane-icon">
+            <Plane size={24} strokeWidth={1.8} />
+          </span>
+        </motion.div>
+        <div className="india-promo-content">
+          <motion.p
+            className="eyebrow light"
+            initial={{ opacity: 0, y: 28 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-60px' }}
+            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: 0.15 }}
+          >
+            <span />
+            Fare drop · Limited seats
+          </motion.p>
+          <motion.h2
+            initial={{ opacity: 0, y: 36 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-60px' }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.28 }}
+          >
+            Australia to India
+            <br />
+            from <strong className="india-promo-price">$479</strong>
+          </motion.h2>
+          <motion.p
+            className="india-promo-text"
+            initial={{ opacity: 0, y: 32 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-60px' }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.4 }}
+          >
+            Return fares ex-Sydney, Melbourne &amp; Brisbane to Delhi, Mumbai, Amritsar and more —
+            taxes included, curated by our experts.
+          </motion.p>
+          <motion.div
+            className="india-promo-chips"
+            initial={{ opacity: 0, y: 28 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-60px' }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.52 }}
+          >
+            {['Delhi', 'Mumbai', 'Amritsar', 'Bengaluru'].map((city) => (
+              <span key={city} className="india-promo-chip">
+                {city}
+              </span>
+            ))}
+          </motion.div>
+        </div>
+      </div>
+    </motion.section>
+  );
+}
+
 function HolidayPackages() {
+  
   const ref = useReveal();
   return (
     <section className="features reveal" id="packages" ref={ref as React.RefObject<HTMLElement>}>
@@ -1679,7 +1854,7 @@ function Callout({ goTo }: { goTo: (path: string) => void }) {
   );
 }
 
-function Footer({ goTo }: { goTo: (path: string) => void }) {
+function Footer({ goTo, hideBank }: { goTo: (path: string) => void; hideBank?: boolean }) {
   return (
     <footer>
       <div className="footer-grid">
@@ -1734,24 +1909,26 @@ function Footer({ goTo }: { goTo: (path: string) => void }) {
           <a href="mailto:info@flightsdoctor.com.au" className="footer-link"><Mail size={15} /> info@flightsdoctor.com.au</a>
           <a href="https://www.facebook.com/flightsdoctorau" className="footer-link"><Facebook size={15} /> facebook.com/flightsdoctorau</a>
         </motion.div>
-        <motion.div
-          initial={{ opacity: 0, y: 36 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.24 }}
-        >
-          <h4>Bank transfer</h4>
-          <p className="bank-name"><Landmark size={15} /> FLIGHTS DOCTOR</p>
-          {banks.map((bank) => (
-            <div className="bank-row" key={bank.name}>
-              <motion.strong
-                whileHover={{ color: '#ffffff', scale: 1.05 }}
-              >{bank.name}</motion.strong>
-              <span>BSB: {bank.bsb}</span>
-              <span>Acc: {bank.acc}</span>
-            </div>
-          ))}
-        </motion.div>
+        {!hideBank && (
+          <motion.div
+            initial={{ opacity: 0, y: 36 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.24 }}
+          >
+            <h4>Bank transfer</h4>
+            <p className="bank-name"><Landmark size={15} /> FLIGHTS DOCTOR</p>
+            {banks.map((bank) => (
+              <div className="bank-row" key={bank.name}>
+                <motion.strong
+                  whileHover={{ color: '#ffffff', scale: 1.05 }}
+                >{bank.name}</motion.strong>
+                <span>BSB: {bank.bsb}</span>
+                <span>Acc: {bank.acc}</span>
+              </div>
+            ))}
+          </motion.div>
+        )}
         <motion.div
           initial={{ opacity: 0, y: 36 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -2031,7 +2208,7 @@ function ContactPage({ goTo }: { goTo: (path: string) => void }) {
           </motion.div>
         )}
       </AnimatePresence>
-      <Footer goTo={goTo} />
+      <Footer goTo={goTo} hideBank />
     </main>
   );
 }
@@ -2121,7 +2298,7 @@ function Terms() {
                 aria-expanded={open[index]}
                 whileHover={{ x: 7 }}
               >
-                <span>0{index + 1}</span>
+                <span>{String(index + 1).padStart(2, '0')}</span>
                 <strong>{title}</strong>
                 <motion.div animate={{ rotate: open[index] ? 180 : 0 }} transition={{ duration: 0.35, type: 'spring' }}>
                   <ChevronDown size={19} />
@@ -2130,6 +2307,7 @@ function Terms() {
               <AnimatePresence initial={false}>
                 {open[index] && (
                   <motion.p
+                  style={{ whiteSpace: 'pre-line' }}
                     initial={{ height: 0, opacity: 0 }}
                     animate={{ height: 'auto', opacity: 1 }}
                     exit={{ height: 0, opacity: 0 }}

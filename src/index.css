@@ -3332,3 +3332,281 @@ select optgroup {
   .nav-cta     { order: 2; }
   .menu-toggle { order: 3; }
 }
+
+
+/* ==========================================================================
+   MOBILE ACTION DOCK — WHATSAPP (GREEN) + CALL NOW (BLUE)
+   fixed bottom bar, sticky while scrolling, mobile only
+   ========================================================================== */
+.action-dock {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 90;
+  display: none;
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+  background: rgba(8, 48, 103, .92);
+  backdrop-filter: blur(18px) saturate(180%);
+  -webkit-backdrop-filter: blur(18px) saturate(180%);
+  box-shadow: 0 -12px 34px rgba(8, 48, 103, .35);
+  animation: dockRise .7s cubic-bezier(.16, 1, .3, 1) .4s both;
+}
+
+@keyframes dockRise {
+  from { transform: translateY(110%); opacity: 0; }
+  to   { transform: translateY(0);    opacity: 1; }
+}
+
+.dock-btn {
+  position: relative;
+  flex: 1 1 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  height: 58px;
+  color: #FFFFFF;
+  font-family: 'Manrope', sans-serif;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: .8px;
+  text-transform: uppercase;
+  overflow: hidden;
+  isolation: isolate;
+  transition: transform .25s cubic-bezier(.16, 1, .3, 1);
+}
+
+.dock-whatsapp {
+  background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+  background-size: 200% 200%;
+  animation: gradientShift 5s ease infinite;
+}
+
+.dock-call {
+  background: linear-gradient(135deg, #1075CF 0%, #004AAD 100%);
+  background-size: 200% 200%;
+  animation: gradientShift 5s ease infinite 1.2s;
+}
+
+/* top edge light */
+.dock-btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(255, 255, 255, .28), transparent 42%);
+  pointer-events: none;
+}
+
+/* futuristic shine sweep */
+.dock-btn::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -80%;
+  width: 55%;
+  height: 100%;
+  background: linear-gradient(100deg, transparent, rgba(255, 255, 255, .45), transparent);
+  transform: skewX(-18deg);
+  animation: dockShine 3.6s ease-in-out infinite;
+  pointer-events: none;
+}
+.dock-call::after { animation-delay: 1.8s; }
+
+@keyframes dockShine {
+  0%, 55%, 100% { left: -80%; }
+  25%           { left: 130%; }
+}
+
+.dock-icon {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, .16);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .35);
+  transition: transform .25s cubic-bezier(.16, 1, .3, 1);
+}
+
+/* pulsing halo ring behind each icon */
+.dock-icon::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 1.5px solid rgba(255, 255, 255, .65);
+  animation: dockPulse 2.4s ease-out infinite;
+}
+.dock-call .dock-icon::before { animation-delay: 1.2s; }
+
+@keyframes dockPulse {
+  0%        { transform: scale(1);    opacity: .8; }
+  70%, 100% { transform: scale(1.55); opacity: 0; }
+}
+
+.dock-label { position: relative; }
+
+.dock-btn:active { transform: scale(.97); }
+.dock-btn:active .dock-icon { transform: scale(.88); }
+
+/* mobile only + keep page content clear of the dock */
+@media (max-width: 768px) {
+  .action-dock { display: flex; }
+  body { padding-bottom: 58px; }
+}
+
+/* INDIA FARE PROMO — "Australia to India from $479" */
+.india-promo {
+  max-width: 1340px;
+  margin: 26px auto 0;
+  padding: 0 36px;
+}
+
+.india-promo-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 26px;
+  min-height: 460px;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 30px 70px rgba(8, 48, 103, .28);
+  isolation: isolate;
+}
+
+/* taller than the card so the scroll parallax never shows edges */
+.india-promo-bg {
+  position: absolute;
+  inset: -12% 0;
+  background-size: cover;
+  background-position: center;
+  will-change: transform;
+  z-index: -2;
+}
+
+.india-promo-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    linear-gradient(90deg, rgba(8, 48, 103, .93) 0%, rgba(11, 44, 93, .72) 46%, rgba(0, 74, 173, .18) 100%);
+}
+
+/* warm sunset glow that drifts with scroll */
+.india-promo-glow {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: radial-gradient(circle at 78% 34%, rgba(224, 0, 0, .30), transparent 52%);
+  mix-blend-mode: screen;
+}
+
+/* plane flying across the card */
+.india-promo-plane {
+  position: absolute;
+  top: 16%;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  pointer-events: none;
+  filter: drop-shadow(0 6px 14px rgba(8, 48, 103, .45));
+}
+.plane-trail {
+  width: 130px;
+  height: 2px;
+  margin-right: 10px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, transparent, rgba(196, 224, 246, .75));
+}
+.plane-icon {
+  display: inline-flex;
+  color: #C4E0F6;
+  transform: rotate(45deg);
+}
+
+.india-promo-content {
+  position: relative;
+  z-index: 1;
+  padding: 56px 60px;
+  max-width: 660px;
+  color: #FFFFFF;
+}
+
+.india-promo-content h2 {
+  margin: 12px 0 16px;
+  font-size: clamp(34px, 4.4vw, 58px);
+  line-height: 1.06;
+  font-weight: 800;
+  letter-spacing: -.5px;
+}
+
+.india-promo-price {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  padding: 2px 18px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #E00000, #cc0000);
+  box-shadow: 0 12px 28px rgba(224, 0, 0, .38);
+  font-size: .92em;
+}
+/* light sweep across the price chip */
+.india-promo-price::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -60%;
+  width: 45%;
+  height: 100%;
+  background: linear-gradient(105deg, transparent, rgba(255, 255, 255, .55), transparent);
+  animation: priceShine 3.4s ease-in-out infinite;
+}
+@keyframes priceShine {
+  0%, 55% { left: -60%; }
+  100% { left: 135%; }
+}
+
+.india-promo-text {
+  margin: 0 0 22px;
+  font-size: 16px;
+  line-height: 1.65;
+  color: rgba(196, 224, 246, .92);
+  max-width: 520px;
+}
+
+.india-promo-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.india-promo-chip {
+  padding: 8px 16px;
+  border-radius: 999px;
+  border: 1px solid rgba(196, 224, 246, .35);
+  background: rgba(255, 255, 255, .1);
+  backdrop-filter: blur(6px);
+  color: #C4E0F6;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: .3px;
+  transition: transform .35s cubic-bezier(.16, 1, .3, 1), background .35s, color .35s, border-color .35s;
+}
+.india-promo-chip:hover {
+  transform: translateY(-4px);
+  background: rgba(255, 255, 255, .18);
+  border-color: rgba(196, 224, 246, .6);
+  color: #FFFFFF;
+}
+
+@media (max-width: 768px) {
+  .india-promo { padding: 0 20px; margin-top: 18px; }
+  .india-promo-card { min-height: 400px; border-radius: 20px; }
+  .india-promo-content { padding: 34px 26px; }
+  .india-promo-content h2 { font-size: clamp(28px, 8vw, 40px); }
+  .india-promo-text { font-size: 15px; }
+  .india-promo-plane { top: 10%; }
+  .plane-trail { width: 70px; }
+}
