@@ -3861,3 +3861,80 @@ select optgroup {
     filter: drop-shadow(0 3px 8px rgba(0, 0, 0, 0.5));
   }
 }
+
+
+
+
+/* ==========================================================================
+   DESKTOP SIDE-BY-SIDE HERO  (India promo card  |  booking form)
+
+   HOW THE LAYOUT SWITCH WORKS
+   ---------------------------------------------------------------------------
+   MOBILE / TABLET (up to 1179px)  -> nothing here applies.
+     The existing rules keep .hero-inner as ONE column
+     (grid-template-columns: 1fr), so the promo card sits on top and the
+     form stacks below it. This is exactly how it works today.
+
+   DESKTOP (1180px and wider)      -> the media query below switches on.
+     We turn .hero-inner into a TWO-column grid:
+        column 1 = promo card (takes all leftover space: 1fr)
+        column 2 = booking form (fixed ~500px)
+     Both are children of .hero-inner, so the grid places them on one row.
+
+   TO CHANGE WHERE IT SWITCHES: edit the 1180px number in the media query.
+   (Below ~1180px the promo card gets too narrow for its text.)
+   ========================================================================== */
+
+:root {
+  /* How far the form overlaps onto the promo card on desktop.
+     0px = no overlap (clean gap). Try 24px–40px for a layered look. */
+  --hero-overlap: 0px;
+}
+
+@media (min-width: 1180px) {
+
+  /* 1) The grid: two columns instead of one.
+        minmax(0, 1fr) lets column 1 shrink safely without overflowing.
+        align-items: stretch makes both items the same height. */
+  .hero-inner {
+    grid-template-columns: minmax(0, 1fr) 500px;
+    column-gap: 36px;
+    align-items: stretch;
+    padding: 160px 36px 100px;
+  }
+
+  /* 2) Left column: the promo wrapper becomes a flex box so the inner
+        card can stretch to the full row height (matches the form). */
+  .hero-inner > .india-promo {
+    display: flex;
+    align-self: stretch;
+  }
+
+  .hero-inner > .india-promo .india-promo-card {
+    flex: 1;            /* fill the wrapper's width AND height */
+    min-width: 0;
+  }
+
+  /* 3) Right column: the form fills its 500px column and sits above the
+        card if they overlap (z-index). margin-left pulls it over the
+        card by --hero-overlap. */
+  .hero-inner > .booking-card {
+    width: 100%;
+    max-width: none;
+    justify-self: stretch;
+    align-self: stretch;
+    margin-left: calc(var(--hero-overlap) * -1);
+    position: relative;
+    z-index: 3;
+  }
+
+  /* 4) The promo card is narrower side by side, so tighten its spacing and
+        heading a little to stop the text from wrapping awkwardly. */
+  .hero-inner .india-promo-content {
+    padding: 48px 44px;
+  }
+
+  .hero-inner .india-promo-content h2 {
+    font-size: clamp(30px, 3.4vw, 50px);
+  }
+}
